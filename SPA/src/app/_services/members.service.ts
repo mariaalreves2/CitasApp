@@ -15,17 +15,17 @@ export class MembersService {
   }
 
   getMember(username: string){
-    return this.http.get<IMember>(this.baseUrl + "users/" + username, this.getHttpOptions());
+    return this.http.get<IMember>(this.baseUrl + "users/" + username);
   }
 
-  getHttpOptions(){
-    const userString = localStorage.getItem("user");
-    if(!userString) return;
-    const user = JSON.parse(userString);
-    return{
-      headers: new HttpHeaders({
-        Authorization: "Bearer " + user.token
-      })
-    }
-  }
+  // getHttpOptions(){
+  //   const userString = localStorage.getItem("user");
+  //   if(!userString) return;
+  //   const user = JSON.parse(userString);
+  //   return{
+  //     headers: new HttpHeaders({
+  //       Authorization: "Bearer " + user.token
+  //     })
+  //   }
+  // }
 }

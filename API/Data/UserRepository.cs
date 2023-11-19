@@ -2,6 +2,7 @@ using API.DTOs;
 using API.Entities;
 using API.Interfaces;
 using AutoMapper;
+using AutoMapper.Execution;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,9 +27,11 @@ public class UserRepository : IUserRepository
             .SingleOrDefaultAsync();
     }
 
-    public Task<IEnumerable<MemberDTO>> GetMembersAsync()
+    public async Task<IEnumerable<MemberDTO>> GetMembersAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Users
+            .ProjectTo<MemberDTO>(_mapper.ConfigurationProvider)
+            .ToListAsync();
     }
 
     public async Task<AppUser> GetUserByIdAsync(int id)

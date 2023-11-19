@@ -10,15 +10,15 @@ import { MembersService } from 'src/app/_services/members.service';
 export class MemberListComponent implements OnInit{
   members: IMember[] = [];
 
-  constructor(private memberService: MembersService) {}
+  constructor(private membersService: MembersService) {}
 
   ngOnInit(): void {
     this.loadMembers();
   }
 
   loadMembers(){
-    this.memberService.getMembers().subscribe({
-      next: members => this.members = members
+    this.membersService.getMembers().subscribe({
+      next: response => this.members = response
     })
   }
 
