@@ -22,6 +22,11 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { SharedModule } from './_modules/shared.module';
+
+Import:[TabsModule.forRoot()]
 
 @NgModule({
   declarations: [
@@ -51,10 +56,13 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
       preventDuplicates: false,
       progressBar: true
     }),
+    TabsModule.forRoot(),
+    SharedModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
