@@ -9,6 +9,8 @@ import { authGuard } from './_guards/auth.guard';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},//Manda siempre al HomeComponent
@@ -19,6 +21,7 @@ const routes: Routes = [
     children:[
       {path:"members", component: MemberListComponent},
       {path:"members/:username", component: MemberDetailComponent},
+      {path:"members/edit", component: MemberDetailComponent, canDeactivate: [preventUnsavedChangesGuard]},
       {path:"lists", component: ListsComponent},
       {path:"messages", component: MessagesComponent}, 
       //{path:"**", component: HomeComponent, pathMatch: "full"},  //Default, cualquier cosa que no aplique a los casos anteriores lo manda aquí

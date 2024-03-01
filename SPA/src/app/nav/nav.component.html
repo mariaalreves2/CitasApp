@@ -24,7 +24,7 @@
                 Bienvenido {{user.username | titlecase}}
             </a>
             <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item">Perfil</a>
+                <a class="dropdown-item" routerLink="/member/edit">Perfil</a>
                 <a class="dropdown-item" (click)="loggout()">Salir</a>
             </div>
         </div>

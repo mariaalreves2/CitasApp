@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './_services/account.service';
 import { IUser } from './_models/iuser';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SpinnerService } from './_services/spinner.service';
 
 @Component({
   selector: 'app-root',
