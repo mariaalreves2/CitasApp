@@ -25,6 +25,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { SharedModule } from './_modules/shared.module';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 Import:[TabsModule.forRoot()]
 
@@ -41,7 +42,8 @@ Import:[TabsModule.forRoot()]
     NotFoundComponent,
     ServerErrorComponent,
     MemberCardComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,
