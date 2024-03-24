@@ -21,8 +21,7 @@ export class AccountService {
       map((response: IUser) => {
         const user = response;
         if (user){
-          localStorage.setItem("user", JSON.stringify(user)); //Guardar en el localstorage el usuario
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     );
@@ -32,8 +31,7 @@ export class AccountService {
     return this.http.post<IUser>(this.baseUrl + "account/register", model).pipe(
       map(user =>{
         if(user){
-          localStorage.setItem("user",JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     );
@@ -42,6 +40,7 @@ export class AccountService {
 
   //Cualquier cambio que se necesite guardar 
   setCurrentUser(user: IUser){
+    localStorage.setItem("user",JSON.stringify(user));
     this.currentUserSource.next(user);
   }
 
