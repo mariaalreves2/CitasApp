@@ -25,6 +25,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { SharedModule } from './_modules/shared.module';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 Import:[TabsModule.forRoot()]
 
@@ -42,7 +43,8 @@ Import:[TabsModule.forRoot()]
     ServerErrorComponent,
     MemberCardComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    TextInputComponent
   ],
   imports: [
     BrowserModule,
