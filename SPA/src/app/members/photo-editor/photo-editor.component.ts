@@ -56,6 +56,17 @@ export class PhotoEditorComponent implements OnInit {
     this.hasBaseDropZoneOver = e;
   }
 
+  deletePhoto(photoId: number) {
+    console.log("photoId: " + photoId);
+    this.membersService.deletePhoto(photoId).subscribe({
+      next: () => {
+        if (this.member) {
+          this.member.photos = this.member.photos.filter(p => p.id !== photoId);
+        }
+      }
+    });
+  }
+
   initializeUploader() {
     this.uploader = new FileUploader({
       url: this.baseUrl + "users/photo",
