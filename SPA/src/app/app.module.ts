@@ -26,6 +26,7 @@ import { SharedModule } from './_modules/shared.module';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { DatePickerComponent } from './_forms/date-picker/date-picker.component';
 
 Import:[TabsModule.forRoot()]
 
@@ -44,7 +45,8 @@ Import:[TabsModule.forRoot()]
     MemberCardComponent,
     MemberEditComponent,
     PhotoEditorComponent,
-    TextInputComponent
+    TextInputComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
